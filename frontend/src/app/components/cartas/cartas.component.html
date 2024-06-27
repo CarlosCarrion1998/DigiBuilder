@@ -1,0 +1,43 @@
+
+    <div class="container">
+        <ng-container *ngIf="!isProfileView">
+            <ng-container *ngFor="let carta of cards" class="cartas" style="width: 100%;">
+                <div class="carta" *ngIf="this.carta.code.startsWith(expansion)">
+                    <div class="carta__imagen">
+                        <img [src]="carta.defaultSrc" class="card-image" data-update-needed="true"/>
+                    </div>
+                    <div class="carta__info">
+                    <p class="card-name">{{ carta.name }}</p>
+                    <button class="anadirButton" (click)="addCardToDeck(carta)">+</button>
+                    </div>
+                </div>
+                
+            </ng-container>
+        </ng-container>
+        
+        <ng-container *ngIf="isProfileView">
+            <ng-container *ngFor="let deckcarta of digimonDeckService.getDeckActual().deckCards" class="cartas" style="width: 100%;">
+                <div class="carta">
+                    <div class="carta__imagen">
+                        <!-- Comprobamos el src de la carta -->
+                        <ng-container *ngIf="deckcarta.card.actualSrc === ''; else actual">
+                            <img [src]="'../../../assets/default-card2.webp'" class="card-image" data-update-needed="true"/>
+                        </ng-container> 
+                        <ng-template #actual>
+                            <img [src]="deckcarta.card.actualSrc" class="card-image" data-update-needed="true"/>
+                        </ng-template>
+                    </div>
+                    <div class="carta__info">
+                    <p class="card-name">{{ deckcarta.card.name }}</p>
+                    <div>
+                        <button class="anadirButton" (click)="removeCardFromDeck(deckcarta)">-</button>
+                        <span>{{ deckcarta.cantidad }}</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+            </ng-container>
+        </ng-container>
+    </div>
+        

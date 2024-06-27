@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Perfil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <div class="container">
+        <div class="cabecera">
+            <app-cabecera [isProfileView]="true"></app-cabecera>
+        </div>
+        <div class="deck-container">
+            <div class="deck-info">
+                <ng-container *ngIf="deckActual">
+                    <input type="text" id="username" name="username" [(ngModel)]="deckActual.name" required>
+                    <button (click)="saveDeck()">Guardar</button>
+                </ng-container>
+            </div>
+            <div class="decks">
+                <ng-container *ngFor="let deck of user?.decks">
+                    <ng-container *ngIf="deck.id==deckActual!.id; else notDeckActual">
+                        <button class="botonimagen" (click)="changeDeck(deck)" >
+                            <img src="../../assets/deck-icon2.png" class="deck-icon-selected" >
+                        </button>
+                    </ng-container>
+                    <ng-template #notDeckActual>
+                        <button class="botonimagen" (click)="changeDeck(deck)" >
+                            <img src="../../assets/deck-icon2.png" class="deck-icon" >
+                        </button>
+                    </ng-template>
+                    
+                </ng-container>
+                
+                <button class="anadirButton" (click)="nuevoDeck()">+</button>
+
+                
+            </div>
+            
+        </div>
+    
+        <div class="cartas">
+            <cartas [isProfileView]="true"></cartas>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+

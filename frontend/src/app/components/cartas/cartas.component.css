@@ -1,0 +1,58 @@
+.carta {
+    display: flex;
+    flex-direction: column;
+    max-width: 145px;
+    margin-bottom: 7px;
+}
+.carta__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+}
+
+.carta__imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 1;
+}
+.card-image {
+    height: 200px;
+}
+
+/* ng-element.cartas {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100%;
+} */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    margin: 2%;
+    gap: 1%;
+}
+
+.card-name {
+    
+    /* max-width: 100%; */
+    min-height: 36px;
+    max-height: 36px;
+    margin: 0px;
+    text-wrap: wrap;
+    overflow: hidden;
+    text-align: center;
+    /* justify-self: center; */
+
+}
+
+.anadirButton {
+    margin-top: 10px;
+    border-radius: 23px;
+}

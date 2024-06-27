@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="flecha">
+        <button>
+            <h2 style="color: white; text-decoration: solid;" (click)="onBack()">←</h2>
+            
+        </button>
+        
+    </div>
+    <div *ngIf="user != null" class="userContainer">
+        <p class="userText">{{user.username}}</p>
+        <button class="fotoButton" (click)="onClick()">
+            <img [src]='"../" + user.image' class="foto">
+        </button>
+    </div>
+
+</div>
